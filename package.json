@@ -1,0 +1,18 @@
+{
+  "name": "TestDemo",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "repository": "git@github.com:ItVen/testDemo.git",
+  "author": "ItVen <751733381@qq.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "issue-input": "node src/get-issue-input"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ethers": "^6.3.0",
+    "moment": "^2.29.4"
+  }
+}
