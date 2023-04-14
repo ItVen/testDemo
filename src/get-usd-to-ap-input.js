@@ -1,29 +1,24 @@
 import { Wallet } from "ethers";
 import moment from "moment";
 import "dotenv/config";
+const address = "0xD425B40EB861FCDEA77C213D70F0DE7CEF5B75C6";
+const usd = 0.01;
 
-const apIssueList = [
-  //to do
-  {
-    address: "0xe7ef0190f5b3ac910ef20773ad5cd7c3daffbd97",
-    ap: "6000",
-  },
-];
 // todo
 const privateKey = process.env.PRIVATE_KEY;
 
 const getApIssueInput = async () => {
   const timestamp = moment().unix();
-  const rawData = `UniPass:AP:Issue:${timestamp}:${JSON.stringify(
-    apIssueList
-  )}`;
+  const rawData = `UniPassApTx:${timestamp}:${address}:${usd}`;
 
   const wallet = new Wallet(privateKey);
-  const adminSig = await wallet.signMessage(rawData);
+  const sig = await wallet.signMessage(rawData);
+
   const input = {
     timestamp,
-    apIssueList,
-    adminSig,
+    address,
+    sig,
+    usd,
   };
   console.info("==========｜｜===========\n");
 
