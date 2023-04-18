@@ -8,14 +8,16 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "issue-input": "node src/get-issue-input",
-    "usd-to-ap-input": "node src/get-usd-to-ap-input",
-    "ap-lock": "node src/get-ap-lock-input"
+    "distribute": "node src/distribute-action-point",
+    "unlock": "node src/unlock-action-point"
   },
   "dependencies": {
+    "@unipasswallet/sdk": "^0.2.2",
+    "axios": "^1.3.5",
+    "csvtojson": "^2.0.10",
     "dotenv": "^16.0.3",
     "ethers": "^5.7.0",
-    "moment": "^2.29.4",
-    "@unipasswallet/sdk": "^0.2.2"
+    "json2csv": "^6.0.0-alpha.2",
+    "moment": "^2.29.4"
   }
 }
