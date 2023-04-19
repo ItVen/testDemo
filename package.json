@@ -9,7 +9,8 @@
   "type": "module",
   "scripts": {
     "distribute": "node src/distribute-action-point",
-    "unlock": "node src/unlock-action-point"
+    "unlock": "node src/unlock-action-point",
+    "init-relayer-config": "node src/init-relayer-config"
   },
   "dependencies": {
     "@unipasswallet/sdk": "^0.2.2",
