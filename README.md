@@ -11,12 +11,14 @@
 $ cp env.demo .env
 
 $ npm install
- 
-# 修改src/get-issue-input 中的apIssueList 获取测试输入参数
-
+  
+# 初始化 relayer 配置文件 读取relayer.csv中的数据更新配置
 $ npm run init-relayer-config
 
+# 管理员分发ap，读取data.csv中的数据分发
 $ npm run distribute
 
+
+# 管理员解锁，
 $ npm run unlock
 ```
