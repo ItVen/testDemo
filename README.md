@@ -19,6 +19,9 @@ $ npm run init-relayer-config
 $ npm run distribute
 
 
+# 管理员添加tob appInfo
+$ npm run appInfo
+
 # 管理员解锁，
 $ npm run unlock
 ```
