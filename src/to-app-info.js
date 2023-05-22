@@ -1,43 +1,50 @@
 import { Wallet } from "ethers";
-import { keccak256, solidityPack } from "ethers/lib/utils.js";
 import moment from "moment";
 import "dotenv/config";
 import axios from "axios";
+import { concat, sha256, toUtf8Bytes } from "ethers/lib/utils.js";
 
 const privateKey = process.env.PRIVATE_KEY;
 const publicKey = `-----BEGIN PUBLIC KEY-----
 xxx
 -----END PUBLIC KEY-----`;
 
-const idToken = "eyJhxxx";
+const idToken = "xx";
 const web3authClientId = "xxx";
-const jwtVerifierIdKey = "xxx";
-const verifierName = "UniPass-xxx";
+const jwtVerifierIdKey = "xx";
+const verifierName = "xx";
 
-const appName = "xxx"; //第三方appName
-const appId = "xxx"; // 为空则服务器随机生成
+const appName = "xx"; //第三方appName
+const appId = "xx"; // 为空则服务器随机生成
 
 const toBAppInfoInput = async () => {
   const jwtPubkey = {
     publicKey,
     idToken,
+    kid: "xxx",
+    alg: "xxx",
   };
+
   const timestamp = moment().unix();
-  const rawData = `UniPass:ToB:${timestamp}:${appName}`;
-
-  const wallet = new Wallet(privateKey);
-  console.info({ adminAddress: wallet.address });
-  const adminSig = await wallet.signMessage(rawData);
-
-  const input = {
+  const params = {
     jwtPubkey: JSON.stringify(jwtPubkey),
-    timestamp,
     appName,
-    adminSig,
     jwtVerifierIdKey,
     verifierName,
     web3authClientId,
     appId,
+  };
+  const message = concat([toUtf8Bytes(JSON.stringify(params))]);
+  const hash = sha256(message);
+  const rawData = `UniPass:ToB:${hash}:${timestamp}`;
+  const wallet = new Wallet(privateKey);
+  const adminSig = await wallet.signMessage(rawData);
+  console.info({ adminAddress: wallet.address });
+
+  const input = {
+    ...params,
+    timestamp,
+    adminSig,
   };
 
   return input;
