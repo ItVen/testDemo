@@ -9,13 +9,15 @@ const publicKey = `-----BEGIN PUBLIC KEY-----
 xxx
 -----END PUBLIC KEY-----`;
 
-const idToken = "xx";
-const web3authClientId = "xxx";
+const idToken = null;
+
+const web3authClientId = "xx";
+const web3authEnv = "testnet";
 const jwtVerifierIdKey = "xx";
 const verifierName = "xx";
 
 const appName = "xx"; //第三方appName
-const appId = "xx"; // 为空则服务器随机生成
+const appId = null; // 为空则服务器随机生成
 
 const toBAppInfoInput = async () => {
   const jwtPubkey = {
@@ -33,6 +35,7 @@ const toBAppInfoInput = async () => {
     verifierName,
     web3authClientId,
     appId,
+    web3authEnv,
   };
   const message = concat([toUtf8Bytes(JSON.stringify(params))]);
   const hash = sha256(message);
