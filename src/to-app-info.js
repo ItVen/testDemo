@@ -5,26 +5,28 @@ import axios from "axios";
 import { concat, sha256, toUtf8Bytes } from "ethers/lib/utils.js";
 
 const privateKey = process.env.PRIVATE_KEY;
-const publicKey = `-----BEGIN PUBLIC KEY-----
-xxx
------END PUBLIC KEY-----`;
+const publicKey = null;
 
 const idToken = null;
 
-const web3authClientId = "xx";
+const web3authClientId = null;
 const web3authEnv = "testnet";
-const jwtVerifierIdKey = "xx";
-const verifierName = "xx";
+const jwtVerifierIdKey = "";
+const verifierName = null;
+const customerId = 0;
 
-const appName = "xx"; //第三方appName
-const appId = null; // 为空则服务器随机生成
+const appName = "snap"; //第三方appName
+const appId = null;
+const enableCustomPolicy = true;
+const customPolicyPublicKey = "1111";
+const callbackUrl = "1111";
 
 const toBAppInfoInput = async () => {
   const jwtPubkey = {
     publicKey,
     idToken,
-    kid: "xxx",
-    alg: "xxx",
+    // kid: "xxx",
+    // alg: "xxx",
   };
 
   const timestamp = moment().unix();
@@ -36,6 +38,10 @@ const toBAppInfoInput = async () => {
     web3authClientId,
     appId,
     web3authEnv,
+    callbackUrl,
+    customPolicyPublicKey,
+    enableCustomPolicy,
+    customerId,
   };
   const message = concat([toUtf8Bytes(JSON.stringify(params))]);
   const hash = sha256(message);

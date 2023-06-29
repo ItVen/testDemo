@@ -11,6 +11,7 @@
     "distribute": "node src/distribute-action-point",
     "unlock": "node src/unlock-action-point",
     "appInfo": "node src/to-app-info",
+    "customInfo": "node src/custom-test",
     "init-relayer-config": "node src/init-relayer-config"
   },
   "dependencies": {
