@@ -12,6 +12,7 @@
     "unlock": "node src/unlock-action-point",
     "appInfo": "node src/to-app-info",
     "customInfo": "node src/custom-test",
+    "migrate": "node src/migrate",
     "init-relayer-config": "node src/init-relayer-config"
   },
   "dependencies": {
@@ -21,6 +22,7 @@
     "dotenv": "^16.0.3",
     "ethers": "^5.7.0",
     "json2csv": "^6.0.0-alpha.2",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "node-rsa": "^1.1.1"
   }
 }
