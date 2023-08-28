@@ -13,6 +13,7 @@
     "appInfo": "node src/to-app-info",
     "customInfo": "node src/custom-test",
     "migrate": "node src/migrate",
+    "migrate_address": "node src/migrate_address",
     "init-relayer-config": "node src/init-relayer-config"
   },
   "dependencies": {

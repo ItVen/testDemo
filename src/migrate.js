@@ -49,7 +49,6 @@ const migrate = async () => {
     },
     data,
   };
-  console.info(JSON.stringify(data), url);
   try {
     const response = await axios.post(url, data, config);
 
