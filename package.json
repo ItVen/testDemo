@@ -11,6 +11,7 @@
     "distribute": "node src/distribute-action-point",
     "unlock": "node src/unlock-action-point",
     "appInfo": "node src/to-app-info",
+    "payment": "node src/payment_admin",
     "customInfo": "node src/custom-test",
     "migrate": "node src/migrate",
     "migrate_address": "node src/migrate_address",
