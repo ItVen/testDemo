@@ -26,14 +26,13 @@ const fileReader = async () => {
 
 const getApIssueInput = async () => {
   const apIssueList = await fileReader();
+  console.log(apIssueList);
   if (apIssueList.length === 0) {
     console.info(`\n csv data is not empty \n`);
     return;
   }
   const timestamp = moment().unix();
-  const rawData = `UniPass:AP:Issue:${timestamp}:${JSON.stringify(
-    apIssueList
-  )}`;
+  const rawData = `UniPass:AP:Issue:${timestamp}:${JSON.stringify(apIssueList)}`;
 
   const wallet = new Wallet(privateKey);
   const adminSig = await wallet.signMessage(rawData);
@@ -49,6 +48,8 @@ const getApIssueInput = async () => {
 
 const distributeActionPoint = async () => {
   const data = await getApIssueInput();
+
+  console.log(data);
   if (!data) {
     return;
   }
@@ -63,9 +64,10 @@ const distributeActionPoint = async () => {
     data,
   };
 
+  console.log(config);
   axios
     .request(config)
-    .then((response) => {
+    .then(response => {
       console.info("==========｜input｜===========\n");
 
       console.info(data);
@@ -73,7 +75,7 @@ const distributeActionPoint = async () => {
       console.info("\n==========｜response｜===========");
       console.info(response.data);
     })
-    .catch((error) => {
+    .catch(error => {
       console.error({
         status: error.response.status,
         errorMessage: error.response.data,

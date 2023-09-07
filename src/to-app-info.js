@@ -5,21 +5,31 @@ import axios from "axios";
 import { concat, sha256, toUtf8Bytes } from "ethers/lib/utils.js";
 
 const privateKey = process.env.PRIVATE_KEY;
-const publicKey = null;
+const publicKey = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiMnjZufewcKB5uXIkSc/
+XrzjpEPo345ks4JDmmk5k0VtpKsrE/5kpEZ+oxZKx6Lcgu0yEEShSL1ptqWsny0U
+nokqnduQzFm1c2uBakls+Mx/fQvwBQD2mxvoN7GdHifOvByTh1MgYQfo4nba9J8L
+SVHHw11TpPy9m7/Owsj+oSfuf40R7YMNnMXm/aZ7Rj6AtTQpdI+gvs8O0btd9ArM
+CPs7SJHl66mADE6b9MIMaWlowA+KaY+2/lTlX+QZatXMQwozX94xYEYvQ/gu2AYZ
+RxMdPaxfDPyNsC4I97cIXzL5MfI+f0ZbmPmObgXaietS5LHUYG5TmTvdUM3LcTku
+6QIDAQAB
+-----END PUBLIC KEY-----`;
 
-const idToken = null;
+const idToken =
+  "eyJhbGciOiJSUzI1NiIsImtpZCI6IjYwODNkZDU5ODE2NzNmNjYxZmRlOWRhZTY0NmI2ZjAzODBhMDE0NWMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2ODU1OTkwNTksImF1ZCI6IjQ2MzQwMjc3NzUxMy1za2hzMW9nNGNsdjYycXIwNGRrNjRpY2dtczVrZXFsNi5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwMzc3NzUzMDUyMDUyMDEzMDM2MSIsImhkIjoibGF5Mi5kZXYiLCJlbWFpbCI6ImV0aGFuQGxheTIuZGV2IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF6cCI6IjQ2MzQwMjc3NzUxMy1za2hzMW9nNGNsdjYycXIwNGRrNjRpY2dtczVrZXFsNi5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsIm5hbWUiOiJFdGhhbiBZYW5nIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hL0FBY0hUdGVma2NqT2gxUkhrbXhKNHpwdHA3RXpNVWI4TXFUSGFSQVBkZ1FDPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IkV0aGFuIiwiZmFtaWx5X25hbWUiOiJZYW5nIiwiaWF0IjoxNjg1NTk5MzU5LCJleHAiOjE2ODU2MDI5NTksImp0aSI6ImFmYmEzNjM3ZGFhY2U1MGRmNWJjM2JjMWY1ZDUxMWQ3ODM5OWJlY2UifQ.H8kWtKEubHIlfNFDvD3x8qTvpgqFHFWRFETm8Osq8gyjONI7I5xOXgsm_IBMTeTlbzSehUbXe5Au1AUXp05GmBtcr79SP8aegqL1U4oeZv9p7INaDU7iS-fqwdq9KsFx2JYTTt5ENx24Qqh6VedrWUHWVDE9JypJ265y3AkIezFN1rcC23izrnI4pxpstO9BPa_cS9zoSJaa-3ZXhgj0J5gsEeXE6LgGtSbgPinjzF_btEleJht5Yy4ypdwGpte7Gks9twXEgftDzqvrGV06HW8O1OcyHmtzHtzCtRhv-GVSCxxmZk3O99U29iPupdJ7p0R6HkmkxNV9jBQMGcbFCg";
 
-const web3authClientId = null;
-const web3authEnv = "testnet";
-const jwtVerifierIdKey = "";
-const verifierName = null;
+const web3authClientId =
+  "BE55t_lrVDA-HYx5lAJ6KeF8SVPYKDuB8fgEwegbvk1Jrfb8BsysgTW0HaErAM4d2NHXDZVTMDJFAjEcSKAISdI";
+const web3authEnv = "mainnet";
+const jwtVerifierIdKey = "email";
+const verifierName = "UniPass-Google-Verifier";
 const customerId = 0;
 
 const appName = "snap"; //第三方appName
-const appId = null;
+const appId = "9e145ea3e5525ee793f39027646c4511";
 const enableCustomPolicy = true;
-const customPolicyPublicKey = "1111";
-const callbackUrl = "1111";
+const customPolicyPublicKey = "0x099e9CBDEe9FE8EC5bFf99Efc01932C9C72EE339";
+const callbackUrl = "https://t.snap.unipass.vip/snap-server/api/v1/transaction/callback";
 
 const toBAppInfoInput = async () => {
   const jwtPubkey = {

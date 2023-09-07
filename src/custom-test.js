@@ -6,7 +6,7 @@ import { concat, sha256, toUtf8Bytes } from "ethers/lib/utils.js";
 
 const privateKey = process.env.PRIVATE_KEY;
 const gasTankBalance = 1000000000000000;
-const sub = "snap";
+const sub = "unipass app";
 const provider = 4;
 const status = 1;
 
@@ -65,10 +65,11 @@ const createAppInfo = async () => {
     console.error("authorization not find");
   }
   const data = {
-    appName: "snap",
+    appName: "unipass app",
+    appId: "9e145ea3e5525ee793f39027646c4513",
     enableCustomPolicy: true,
-    customPolicyPublicKey: "0x099e9CBDEe9FE8EC5bFf99Efc01932C9C72EE339", // todo snap app gas fee sig public key
-    callbackUrl: "https://t.wallet.unipass.vip/snap-server/api/v1/transaction/callback", // todo snap app callback url
+    customPolicyPublicKey: "0xc13D5DaC4429a1EC60B7479f8Eca766bC0BF93d1", // todo snap app gas fee sig public key
+    callbackUrl: "", // todo snap app callback url
   };
   const url = process.env.CUSTOM_CREATE_APP;
   let config = {

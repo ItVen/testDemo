@@ -12,6 +12,7 @@
     "unlock": "node src/unlock-action-point",
     "appInfo": "node src/to-app-info",
     "customInfo": "node src/custom-test",
+    "google": "node src/id_token_google",
     "init-relayer-config": "node src/init-relayer-config"
   },
   "dependencies": {
@@ -20,6 +21,8 @@
     "csvtojson": "^2.0.10",
     "dotenv": "^16.0.3",
     "ethers": "^5.7.0",
+    "firebase-admin": "^11.9.0",
+    "google-auth-library": "^8.9.0",
     "json2csv": "^6.0.0-alpha.2",
     "moment": "^2.29.4"
   }
